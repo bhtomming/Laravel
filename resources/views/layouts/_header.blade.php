@@ -29,7 +29,7 @@
                             </span>
                             {{ Auth::user()->name }}<span class="carset"></span>
                         </a>
-                        <ul class="dropdown" role="menu">
+                        <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="{{ route( 'logout') }}" onclick="event.preventDefault(); docutment.getElementById('logout-form').submit();">
                                     退出登录
