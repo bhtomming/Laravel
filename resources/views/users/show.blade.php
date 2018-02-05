@@ -14,10 +14,10 @@
                         <div class="media-body">
                             <hr>
                             <h4><strong>个人中心</strong></h4>
-                            <p>个人信息简介，详细内容</p>
+                            <p>{{$user->introduction}}</p>
                             <hr>
                             <h4><strong>注册于</strong></h4>
-                            <p>2018-1-31</p>
+                            <p>{{$user->created_at->diffForHumans()}}</p>
                         </div>
                     </div>
                 </div>
