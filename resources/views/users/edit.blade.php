@@ -9,7 +9,7 @@
             </div>
             @include('common.error')
             <div class="panel-body">
-                <form action="{{ route('users.update',$user->id) }}" method="post" accept-charset="utf-8">
+                <form action="{{ route('users.update',$user->id) }}" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value="put">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -21,6 +21,15 @@
                     <div class="form-group">
                         <label for="email-field">邮箱</label>
                         <input type="email" name="email" id="email-field" class="form-control" value="{{ old('email',$user->email) }}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="avatar">用户头像</label>
+                        <input type="file" name="avatar" >
+                        @if($user->avatar)
+                            <hr/>
+                            <img src="{{ $user->avatar }}" width="200" class="thumbnail img-responsive"/>
+                        @endif
                     </div>
 
                     <div class="form-group">
