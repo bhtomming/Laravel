@@ -35,9 +35,9 @@
 </p> <label>Category_id</label>
 <p>
 	{{ $topic->category_id }}
-</p> <label>Reply_cout</label>
+</p> <label>Reply_count</label>
 <p>
-	{{ $topic->reply_cout }}
+	{{ $topic->reply_count }}
 </p> <label>View_count</label>
 <p>
 	{{ $topic->view_count }}

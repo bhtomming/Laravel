@@ -11,7 +11,7 @@
                     <div class="media-heading">
                         <a href="{{ route('topics.show',$topic->id) }}" title="{{ $topic->title }}">{{ $topic->title }}</a>
                         <a href="{{ route('topics.show',$topic->id) }}" title="{{ $topic->title }}" class="pull-right">
-                            <span class="badge">{{ $topic->reply_cout }}</span>
+                            <span class="badge">{{ $topic->reply_count }}</span>
                         </a>
                     </div>
 

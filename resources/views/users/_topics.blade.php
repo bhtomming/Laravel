@@ -4,7 +4,7 @@
         <li class="list-group-item">
             <a href="{{ route('topics.show',$topic->id) }}">{{ $topic->title }}</a>
             <span class="meta pull-right">
-                {{ $topic->reply_cout }}回复
+                {{ $topic->reply_count }}回复
                 <span>.</span>
                 {{ $topic->created_at->diffForHumans() }}
             </span>
