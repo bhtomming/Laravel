@@ -33,7 +33,11 @@
             </div>
             <div class="panel panel-default">
                 <div class="panel-body">
-                    暂无数据
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#">Ta的最新话题</a> </li>
+                        <li><a href="#">Ta的最新回复</a> </li>
+                    </ul>
+                    @include('users._topics',['topics'=>$user->topics()->recent()->paginate(5)])
                 </div>
             </div>
         </div>
