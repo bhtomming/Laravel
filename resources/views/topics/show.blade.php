@@ -34,17 +34,22 @@
                 <div class="topic-body">
                     {!! $topic->body !!}
                 </div>
-
+                @can('update',$topic)
                 <div class="operate">
                     <hr>
-                    <a href="{{ route('topics.edit',$topic->id) }}" class="btn btn-default btn-sm">
-                        <span class="glyphicon glyphicon-edit"></span>
+                    <a href="{{ route('topics.edit',$topic->id) }}" class="btn btn-default btn-sm pull-left">
+                        <i class="glyphicon glyphicon-edit"></i>
                         编辑
                     </a>
-                    <a href="{{ route('topics.destroy',$topic->id) }}" class="btn btn-default btn-sm">
-                        <span class="glyphicon glyphicon-trash"></span>
-                        删除</a>
+                    <form action="{{ route('topics.destroy',$topic->id) }}" method="post" >
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        {{ method_field('DELETE') }}
+                    <button type="submit" class="btn btn-default btn-sm pull-left" style="margin-left: 6px;">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        删除</button>
+                    </form>
                 </div>
+                @endcan
             </div>
         </div>
     </div>
