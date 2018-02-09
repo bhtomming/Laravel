@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Handlers\ImageUploadHandler;
 use App\Models\Category;
 use App\Models\Topic;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
 use Auth;
+use Symfony\Component\HttpFoundation\Request;
 
 class TopicsController extends Controller
 {
@@ -40,7 +41,7 @@ class TopicsController extends Controller
         $topic->fill($request->all());
         $topic->user_id = Auth::id();
         $topic->save();
-		return redirect()->route('topics.show', $topic->id)->with('message', 'Created successfully.');
+		return redirect()->route('topics.show', $topic->id)->with('message', '创建成功！');
 	}
 
 	public function edit(Topic $topic)
@@ -54,7 +55,7 @@ class TopicsController extends Controller
 		$this->authorize('update', $topic);
 		$topic->update($request->all());
 
-		return redirect()->route('topics.show', $topic->id)->with('message', 'Updated successfully.');
+		return redirect()->route('topics.show', $topic->id)->with('message', '更新成功！');
 	}
 
 	public function destroy(Topic $topic)
@@ -62,6 +63,24 @@ class TopicsController extends Controller
 		$this->authorize('destroy', $topic);
 		$topic->delete();
 
-		return redirect()->route('topics.index')->with('message', 'Deleted successfully.');
+		return redirect()->route('topics.index')->with('message', '删除成功');
 	}
+
+	public function uploadImage(Request $requset,ImageUploadHandler $uploader){
+        $data = [
+            'success' => false,
+            'msg' =>'上传失败',
+            'file_path'=>'',
+        ];
+        if($file = $requset->upload_file){
+            $result = $uploader->save($requset->upload_file,'topics',\Auth::id(),1024);
+            if($result){
+                $data['file_path'] = $result['path'];
+                $data['success'] = true;
+                $data['msg'] = '上传成功';
+            }
+        }
+
+        return $data;
+    }
 }
