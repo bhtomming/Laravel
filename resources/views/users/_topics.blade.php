@@ -14,3 +14,5 @@
 @else
     暂无数据
 @endif
+{{-- 分页 --}}
+{!! $topics->appends(Request::except('page'))->render() !!}
