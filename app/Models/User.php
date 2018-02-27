@@ -57,4 +57,20 @@ class User extends Authenticatable
         $this->save();
         $this->unreadNotifications->markAsRead();
     }
+
+    public function setPasswordAttribute($value){
+        //判断密码长度是否60，如果是就已经加密过
+        if(strlen($value) != 60){
+            $value = bcrypt($value);
+        }
+        $this->attributes['password'] = $value;
+    }
+
+    public function setAvatarAttribute($path){
+        //判断路径是否以http开头，如果不是就添加完整路径.
+        if(! starts_with($path,'http')){
+            $path = config('app.url')."/upload/images/avatar/$path";
+        }
+        $this->attributes['avatar'] = $path;
+    }
 }
