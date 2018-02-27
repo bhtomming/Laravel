@@ -15,7 +15,7 @@ return [
     |
      */
     
-    'allowed_tlds' => ['dev', 'local','test'],
+    'allowed_tlds' => ['dev', 'local', 'com'],
 
     /*
     |--------------------------------------------------------------------------
@@ -27,6 +27,6 @@ return [
     |
      */
     
-    'user_model' => App\Models\User::class
+    'user_model' => App\Models\User::class,
     
 ];

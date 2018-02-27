@@ -13,8 +13,7 @@ class Policy
         //
     }
 
-    public function before($user, $ability)
-	{
+    public function before($user, $ability){
 	    // if ($user->isSuperAdmin()) {
 	    // 		return true;
 	    // }

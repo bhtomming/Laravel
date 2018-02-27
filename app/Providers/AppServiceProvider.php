@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Bootstrap any application services.
      *
@@ -30,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        if(app()->isLocal()){
+        if (app()->isLocal()) {
             $this->app->register(\VIACreative\SudoSu\ServiceProvider::class);
         }
     }
