@@ -4,8 +4,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" >
         <meta name="viewport" content="width=device-width, initial-scale=1 ">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>@yield('title','laraBBS')-laravel进阶</title>
-        <meta name="description" content="@yield('description','Laravel爱好者论坛')"/>
+        <title>@yield('title','laraBBS')-{{ setting('site_name','laravel进阶') }}</title>
+        <meta name="description" content="@yield('description',setting('seo_description','Laravel爱好者论坛'))"/>
+        <meta name="keywords" content="@yield('keywords', setting('seo_keyword','Laravel爱好者论坛')  )"/>
         <link rel="stylesheet" href="{{asset('css/app.css')}}" />
         @yield('styles')
     </head>

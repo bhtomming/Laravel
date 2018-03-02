@@ -75,6 +75,9 @@ return array(
             'topics',
             'replies',
         ],
+        '站点配置' => [
+            'settings.site'
+        ],
     ],
 
     /*
