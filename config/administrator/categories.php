@@ -60,7 +60,7 @@ return [
         'name' => 'required|mix:1|unique:categories,name',
     ],
 
-    'message' => [
+    'messages' => [
         'name.required' => '分类名称不能为空',
         'name.unique' => '该分类名称已经存在，请另起名称',
     ],

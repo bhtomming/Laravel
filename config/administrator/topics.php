@@ -110,7 +110,7 @@ return [
         'title' => 'required',
     ],
 
-    'message' => [
+    'messages' => [
         'title.required' => '话题标题不能为空',
     ],
 ];

@@ -71,7 +71,7 @@ return [
     ],
 
     //表单验证错误提示
-    'message' => [
+    'messages' => [
         'name.required' => '角色名称不能为空',
         'name.max' => '角色名称长度不能超过15个字符',
         'name.unique' => '角色名称已经存在，请不要设置相同角色名称',

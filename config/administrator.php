@@ -116,7 +116,7 @@ return array(
      * @type string
      */
     //后台主页需要显示的菜单，从菜单数组中选择
-    'home_page' => 'users',
+    'home_page' => 'topics',
 
     /*
      * The route to which the user will be taken when they click the "back to site" button
@@ -131,8 +131,8 @@ return array(
      *
      * @type string
      */
-    //登录页面
-    'login_path' => 'login',
+    //登录页面,当用户permission检测不过时跳转到的路由
+    'login_path' => 'permission-denied',
 
     /*
      * The logout path is the path where Administrator will send the user when they click the logout link
