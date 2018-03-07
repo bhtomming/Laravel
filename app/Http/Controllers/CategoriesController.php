@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Link;
 use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -10,12 +11,14 @@ use Illuminate\Http\Request;
 class CategoriesController extends Controller
 {
     //
-    public function show(Category $category, Request $request, Topic $topic, User $user){
+    public function show(Category $category, Request $request, Topic $topic, User $user, Link $link){
         //$topics = Topic::where('category_id',$category->id)->paginate(20);
         $topics = $topic->withOrder($request->order)
                         ->where('category_id',$category->id)
                         ->paginate(20);
         $activeUsers = $user->getActiveUsers();
-        return view('topics.index',compact('topics','category', 'activeUsers'));
+        $links = $link->getAllCached();
+
+        return view('topics.index',compact('topics','category', 'activeUsers','links'));
     }
 }

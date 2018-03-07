@@ -76,7 +76,8 @@ return array(
             'replies',
         ],
         '站点配置' => [
-            'settings.site'
+            'settings.site',
+            'links',
         ],
     ],
 
